@@ -7,7 +7,9 @@ def type_repr(typ) -> str:
         return repr(typ)
 
     module = getattr(typ, "__module__", None)
+    print("TROLOLO module " + str(module))
     name = getattr(typ, "__qualname__", None)
+    print("TROLOLO name " + str(name))
     if name is None:
         name = getattr(typ, "__name__", None)
     if name is not None:
