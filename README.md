@@ -8,8 +8,15 @@ bazel test //... --test_output=all
 ```
 
 ```
-    self.loader.exec_module(module)
-lib/project1/project1/test_foo.py:1: in <module>
-    import project1.foo
-E   ModuleNotFoundError: No module named 'project1'
+=================================== FAILURES ===================================
+________________________________ test_type_repr ________________________________
+
+    def test_type_repr():
+>       assert project1.foo.type_repr(Foo) == "project1.test_foo.Foo"
+E       AssertionError: assert 'lib.project1....test_foo.Foo' == 'project1.test_foo.Foo'
+E         - project1.test_foo.Foo
+E         + lib.project1.project1.test_foo.Foo
+E         ? +++++++++++++
+
+lib/project1/project1/test_foo.py:9: AssertionError
 ```
