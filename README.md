@@ -4,19 +4,10 @@ Playing around with different python rules for bazel
 ## repro
 
 ```
-bazel test //... --test_output=all
+bazel run //:main     
 ```
 
 ```
-=================================== FAILURES ===================================
-________________________________ test_type_repr ________________________________
-
-    def test_type_repr():
->       assert project1.foo.type_repr(Foo) == "project1.test_foo.Foo"
-E       AssertionError: assert 'lib.project1....test_foo.Foo' == 'project1.test_foo.Foo'
-E         - project1.test_foo.Foo
-E         + lib.project1.project1.test_foo.Foo
-E         ? +++++++++++++
-
-lib/project1/project1/test_foo.py:9: AssertionError
+3.11.7 (main, Jan  7 2024, 14:26:33) [Clang 15.0.0 (clang-1500.1.0.2.5)]
+/Users/sergei/.virtualenvs/venv/bin/python3
 ```
